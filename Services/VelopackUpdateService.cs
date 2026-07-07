@@ -74,7 +74,11 @@ namespace WpfStandaloneUpdateApp.Services
             return result;
         }
 
-        private static UpdateSeverity ClassifySeverity(SemanticVersion? current, SemanticVersion target)
+        // Uses `dynamic` deliberately instead of naming Velopack's version type explicitly
+        // (e.g. SemanticVersion) - that type's exact name/namespace has changed across
+        // Velopack releases, but Major/Minor/Patch properties exist either way, so this
+        // avoids the build breaking again on a future package update.
+        private static UpdateSeverity ClassifySeverity(dynamic? current, dynamic target)
         {
             if (current is null)
                 return UpdateSeverity.Minor; // be conservative if we can't compare

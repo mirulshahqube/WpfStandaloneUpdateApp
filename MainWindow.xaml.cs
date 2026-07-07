@@ -28,7 +28,7 @@ namespace WpfStandaloneUpdateApp
 #else
         // TODO: replace with your actual GitHub repo (must have Releases published via vpk).
         private readonly VelopackUpdateService _updateService =
-            new("https://github.com/yourname/yourrepo");
+            new("https://github.com/mirulshahqube/WpfStandaloneUpdateApp");
 #endif
 
         private UpdateCheckResult? _lastResult;
